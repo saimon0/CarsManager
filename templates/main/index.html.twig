@@ -32,19 +32,19 @@
             {{ form_start(form) }}
             <form id="form-add-car">
                 <div class="form-group w-25">
-                    {{ form_row(form.mark) }}
+                    {{ form_row(form.mark, {'label': 'Mark'}) }}
                     <small id="emailHelp" class="form-text text-muted">e.g. Volkswagen, BMW, Opel etc.</small>
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.model) }}
+                    {{ form_row(form.model, {'label': 'Model'}) }}
                     <small id="emailHelp" class="form-text text-muted">e.g. Golf, series 3, Astra etc.</small>
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.yearProd) }}
-                    <small id="emailHelp" class="form-text text-muted">4-digit number e.g. 1996, 2019</small>
+                    {{ form_row(form.yearProd, {'label': 'Year of production'}) }}
+                    <small id="emailHelp" class="form-text text-muted">Pick the correct year of car's production</small>
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.engineType) }}
+                    {{ form_row(form.engineType, {'label': 'Engine type'}) }}
                 </div>
                 <div class="form-group w-25">
                     {{ form_row(form.engineCapacity) }}
@@ -55,11 +55,11 @@
                     <small id="emailHelp" class="form-text text-muted">Current car's mileage .e.g. 25000</small>
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.vin) }}
+                    {{ form_row(form.vin, {'label': 'VIN number'}) }}
                     <small id="emailHelp" class="form-text text-muted">16-digit unique series number e.g. WOL123456789123</small>
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.user) }}
+                    {{ form_row(form.user, {'label': "Car's user"}) }}
                     <small id="emailHelp" class="form-text text-muted">Current user of car (if is used)</small>
                 </div>
                 <div class="form-check">
