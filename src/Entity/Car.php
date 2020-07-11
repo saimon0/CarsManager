@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CarRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CarRepository::class)
@@ -42,8 +43,12 @@ class Car
      */
     private $engineCapacity;
 
+
     /**
      * @ORM\Column(type="integer")
+     */
+    /**
+     * @Assert\Positive
      */
     private $mileage;
 

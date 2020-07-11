@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Car;
+use App\Entity\Employee;
 use App\Form\CarType;
 use App\Form\RemoveCarType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,14 +15,22 @@ class CarController extends AbstractController
     /**
      * @Route("/car", name="car_main")
      */
-    public function displayMainCarPage(Request $request)
+    public function displayMainCarPage()
+    {
+        return $this->render('car/car_main.html.twig', [
+        ]);
+    }
+
+    /**
+     * @Route("/car/create", name="car_create")
+     */
+    public function createCarPage(Request $request)
     {
         $createForm = $this->createForm(CarType::class);
-        $removeForm = $this->createForm(RemoveCarType::class);
 
         $createForm->handleRequest($request);
 
-        if($createForm->isSubmitted())
+        if($createForm->isSubmitted() && $createForm->isValid())
         {
             $car = $createForm->getData();
 
@@ -45,6 +54,21 @@ class CarController extends AbstractController
             //var_dump("gites dodano do bazy");
             return $this->redirectToRoute('car_create_success');
         }
+
+        $repository = $this->getDoctrine()->getRepository(Car::class);
+        $allCars =  $repository->findAll();
+
+        return $this->render('car/car_create.html.twig', [
+            'form' => $createForm->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/car/remove", name="car_remove")
+     */
+    public function removeCarPage(Request $request)
+    {
+        $removeForm = $this->createForm(RemoveCarType::class);
 
         $removeForm->handleRequest($request);
 
@@ -70,17 +94,26 @@ class CarController extends AbstractController
                 return $this->redirectToRoute('car_remove_successed');
             }
         }
-
-        return $this->render('car/car_main.html.twig', [
-            'form' => $createForm->createView(),
+        return $this->render('car/car_remove.html.twig', [
             'removeForm' => $removeForm->createView(),
         ]);
     }
 
     /**
-     * @Route("/display/cars", name="car_display")
+     * @Route("/car/update", name="car_update")
      */
-    public function displayCars()
+    public function updateCarPage()
+    {
+        $updateForm = $this->createForm(CarType::class);
+        return $this->render('car/car_update.html.twig', [
+            'form' => $updateForm->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/car/display", name="car_display")
+     */
+    public function displayCarsPage()
     {
         $repository = $this->getDoctrine()->getRepository(Car::class);
         $allCars =  $repository->findAll();

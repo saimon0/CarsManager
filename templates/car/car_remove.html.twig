@@ -22,7 +22,20 @@
             <a href="{{ path('car_remove') }}"><button type="button" class="btn btn-primary" id="remove-car-btn">Remove car</button></a>
             <a href="{{ path('car_update') }}"><button type="button" class="btn btn-primary" id="update-car-btn">Update car</button></a>
             <a href="{{ path('car_display') }}"><button type="button" class="btn btn-primary" id="display-car-btn">Display cars</button></a>
-            <a href="/main"><button type="button" class="btn btn-info" id="return-car-main-btn">Return</button></a>
+            <a href="/main"><button type="button" class="btn btn-info" id="return-car-remove-btn">Return</button></a>
+        </div>
+
+        <div class="container-fluid" id="remove-car-form-div">
+            <h4>Enter car's id to remove it from the database</h4>
+            {{ form_start(removeForm) }}
+            <form id="form-remove-car">
+                <div class="form-group w-25">
+                    {{ form_row(removeForm.id) }}
+                    <small id="emailHelp" class="form-text text-muted">Car's identifier is presented in "Display cars" tab</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            {{ form_end(removeForm) }}
         </div>
     </div>
 {% endblock %}
