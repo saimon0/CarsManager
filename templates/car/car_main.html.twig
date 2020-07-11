@@ -15,14 +15,60 @@
 {% endblock %}
 
 {% block body %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <div class="w-100" id="header-car-div">
+        <h1 id="header-car">Cars in database</h1>
+    </div>
+    <div class="container-fluid" id="car-nav-div">
+        <a href="{{ path('car_create') }}"><button type="button" class="btn btn-success" id="add-car-btn">Add a new car</button></a>
+        <a href="/main"><button type="button" class="btn btn-info" id="return-car-main-btn">Return</button></a>
+    </div>
+
     <div class="container-fluid" id="car-main-div">
         <div class="container-fluid" id="car-main-div-info">
-            <h3>Company cars can be added, removed or updated. You can also plan a car service</h3>
-            <a href="{{ path('car_create') }}"><button type="button" class="btn btn-primary" id="add-car-btn">Add car</button></a>
-            <a href="{{ path('car_remove') }}"><button type="button" class="btn btn-primary" id="remove-car-btn">Remove car</button></a>
-            <a href="{{ path('car_update') }}"><button type="button" class="btn btn-primary" id="update-car-btn">Update car</button></a>
-            <a href="{{ path('car_display') }}"><button type="button" class="btn btn-primary" id="display-car-btn">Display cars</button></a>
-            <a href="/main"><button type="button" class="btn btn-info" id="return-car-main-btn">Return</button></a>
+            <h3 id="header-car-info"> This page shows all cars which are currently persist in database</h3>
+        </div>
+        <div class="container-fluid" id="div-display-cars">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Mark</th>
+                    <th>Model</th>
+                    <th>Year of production</th>
+                    <th>Engine type</th>
+                    <th>Engine capacity</th>
+                    <th>Mileage</th>
+                    <th>VIN number</th>
+                    <th>User</th>
+                    <th>Operations</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for car in allCars %}
+                    <tr>
+                        <td>{{ car.id }}</td>
+                        <td>{{ car.mark }}</td>
+                        <td>{{ car.model }}</td>
+                        <td>{{ car.yearProd }}</td>
+                        <td>{{ car.engineType }}</td>
+                        <td>{{ car.engineCapacity }}</td>
+                        <td>{{ car.mileage }}</td>
+                        <td>{{ car.vin }}</td>
+                        <td>{{ car.user }}</td>
+                        <td id="operations">
+                            <a href="{{ path('car_edit', {'car': car.id}) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ path('car_remove', {'car': car.id}) }}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 {% endblock %}

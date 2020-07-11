@@ -19,18 +19,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="569e4acb-4415-4df3-83ab-45a004556b11" name="Default Changelist" comment="update 10.07.2020&#10;&#10;- corrected adding car's form">
-      <change afterPath="$PROJECT_DIR$/templates/car/car_create.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/car/car_remove.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/car/car_update.html.twig" afterDir="false" />
+    <list default="true" id="569e4acb-4415-4df3-83ab-45a004556b11" name="Default Changelist" comment="update 11.07.2020">
+      <change afterPath="$PROJECT_DIR$/templates/car/car_edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/app_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DisplayController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Car.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Car.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CarType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CarType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/car_create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/car/car_create.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/car_create_failed_vin.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/car_create_successed.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/car_display.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/car/car_main.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/car/car_main.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/car_remove.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/car_remove_failed.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/car_remove_successed.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/car_update.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/employee.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,13 +197,13 @@
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/car" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/car" />
       <recent name="$PROJECT_DIR$/templates/employee" />
       <recent name="$PROJECT_DIR$/templates/display" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/car" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -216,7 +221,8 @@
       <workItem from="1594375714053" duration="15000" />
       <workItem from="1594401743201" duration="7758000" />
       <workItem from="1594417760749" duration="1916000" />
-      <workItem from="1594469556023" duration="10771000" />
+      <workItem from="1594469556023" duration="10877000" />
+      <workItem from="1594488834581" duration="8781000" />
     </task>
     <task id="LOCAL-00001" summary="update 10.07.2020&#10;&#10;- add, remove, display cars and employees">
       <created>1594407688080</created>
@@ -253,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594473897077</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update 11.07.2020">
+      <created>1594480811083</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1594480811083</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +289,8 @@
     <MESSAGE value="update 10.07.2020&#10;&#10;- corrected adding car's form" />
     <MESSAGE value="11.07.2020 rebuilt front" />
     <MESSAGE value="11.07.2020 corrections" />
-    <option name="LAST_COMMIT_MESSAGE" value="11.07.2020 corrections" />
+    <MESSAGE value="update 11.07.2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 11.07.2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="739" y="351" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594479872604">
@@ -307,10 +321,10 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state width="1354" height="194" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1594320088039" />
-    <state x="681" y="264" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1594473900452">
+    <state x="681" y="264" width="800" height="563" key="Vcs.Push.Dialog.v2" timestamp="1594480813387">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="681" y="264" width="800" height="563" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1594473900452" />
+    <state x="681" y="264" width="800" height="563" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1594480813387" />
     <state x="891" y="214" width="432" height="623" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594320474498">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>

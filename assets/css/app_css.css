@@ -1,6 +1,6 @@
 body
 {
-    background-color: lightgray;
+    background-color: #EEEBE7;
 }
 
 #manage-cars-btn
@@ -15,7 +15,6 @@ body
 
 #return-car-main-btn
 {
-    margin-left: 1em;
 }
 
 #return-car-create-btn
@@ -124,4 +123,44 @@ body
 #update-car-form-div
 {
     margin-top: 1em;
+}
+
+#display-car-info
+{
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+#header-car-div
+{
+    background-color: #3B98AF;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#header-car
+{
+    color: #ECECEC;
+    margin-left: 1em;
+}
+
+#car-nav-div
+{
+    margin-top: 0.05em;
+    padding-left: 2em;
+    background-color: #3B98AF;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+#header-car-info
+{
+    color: #1D8858;
+}
+
+#car-main-div-info
+{
+    margin-top: 1em;
+    margin-bottom: 3em;
 }

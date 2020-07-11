@@ -5,9 +5,12 @@ namespace App\Entity;
 use App\Repository\CarRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=CarRepository::class)
+ * @UniqueEntity("vin")
+ *
  */
 class Car
 {
@@ -39,16 +42,17 @@ class Car
     private $engineType;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $engineCapacity;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Employee::class, inversedBy="user", cascade={"persist", "remove"})
+     */
+    private $user;
 
     /**
      * @ORM\Column(type="integer")
-     */
-    /**
-     * @Assert\Positive
      */
     private $mileage;
 
@@ -56,11 +60,6 @@ class Car
      * @ORM\Column(type="string", length=16)
      */
     private $vin;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Employee::class, inversedBy="user", cascade={"persist", "remove"})
-     */
-    private $user;
 
     public function getId(): ?int
     {
@@ -115,14 +114,27 @@ class Car
         return $this;
     }
 
-    public function getEngineCapacity(): ?int
+    public function getEngineCapacity(): ?string
     {
         return $this->engineCapacity;
     }
 
-    public function setEngineCapacity(int $engineCapacity): self
+    public function setEngineCapacity(string $engineCapacity): self
     {
         $this->engineCapacity = $engineCapacity;
+
+        return $this;
+    }
+
+
+    public function getUser(): ?Employee
+    {
+        return $this->user;
+    }
+
+    public function setUser(?Employee $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
@@ -147,18 +159,6 @@ class Car
     public function setVin(string $vin): self
     {
         $this->vin = $vin;
-
-        return $this;
-    }
-
-    public function getUser(): ?Employee
-    {
-        return $this->user;
-    }
-
-    public function setUser(?Employee $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }

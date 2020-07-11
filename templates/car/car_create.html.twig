@@ -17,12 +17,8 @@
 {% block body %}
     <div class="container-fluid" id="car-main-div">
         <div class="container-fluid" id="car-main-div-info">
-            <h3>Company cars can be added, removed or updated. You can also plan a car service</h3>
-            <a href="{{ path('car_create') }}"><button type="button" class="btn btn-primary" id="add-car-btn">Add car</button></a>
-            <a href="{{ path('car_remove') }}"><button type="button" class="btn btn-primary" id="remove-car-btn">Remove car</button></a>
-            <a href="{{ path('car_update') }}"><button type="button" class="btn btn-primary" id="update-car-btn">Update car</button></a>
-            <a href="{{ path('car_display') }}"><button type="button" class="btn btn-primary" id="display-car-btn">Display cars</button></a>
-            <a href="/main"><button type="button" class="btn btn-info" id="return-car-create-btn">Return</button></a>
+            <h3>Enter car's parameters to persist it to the database</h3>
+            <a href="/car"><button type="button" class="btn btn-danger" id="return-car-main-btn">Cancel creation</button></a>
         </div>
 
         <div class="container-fluid" id="create-car-form-div">

@@ -17,54 +17,48 @@
 {% block body %}
     <div class="container-fluid" id="car-main-div">
         <div class="container-fluid" id="car-main-div-info">
-            <h3>Company cars can be added, removed or updated. You can also plan a car service</h3>
-            <a href="{{ path('car_create') }}"><button type="button" class="btn btn-primary" id="add-car-btn">Add car</button></a>
-            <a href="{{ path('car_remove') }}"><button type="button" class="btn btn-primary" id="remove-car-btn">Remove car</button></a>
-            <a href="{{ path('car_update') }}"><button type="button" class="btn btn-primary" id="update-car-btn">Update car</button></a>
-            <a href="{{ path('car_display') }}"><button type="button" class="btn btn-primary" id="display-car-btn">Display cars</button></a>
-            <a href="/main"><button type="button" class="btn btn-info" id="return-car-update-btn">Return</button></a>
+            <h3>Edit car's parameters</h3>
+            <a href="/car"><button type="button" class="btn btn-danger" id="return-car-main-btn">Cancel edition</button></a>
         </div>
-
-        <div class="container-fluid" id="update-car-form-div">
-            <h4>Enter car's details to be updated</h4>
-            {{ form_start(form) }}
+        <div class="container-fluid" id="create-car-form-div">
+            {{ form_start(editForm) }}
             <form id="form-add-car">
                 <div class="form-group w-25">
-                    {{ form_row(form.mark, {'label': 'Mark'}) }}
+                    {{ form_row(editForm.mark, {'label': 'Mark'}) }}
                     <small id="emailHelp" class="form-text text-muted">e.g. Volkswagen, BMW, Opel etc.</small>
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.model, {'label': 'Model'}) }}
+                    {{ form_row(editForm.model, {'label': 'Model'}) }}
                     <small id="emailHelp" class="form-text text-muted">e.g. Golf, series 3, Astra etc.</small>
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.yearProd, {'label': 'Year of production'}) }}
+                    {{ form_row(editForm.yearProd, {'label': 'Year of production'}) }}
                     <small id="emailHelp" class="form-text text-muted">Pick the correct year of car's production</small>
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.engineType, {'label': 'Engine type'}) }}
+                    {{ form_row(editForm.engineType, {'label': 'Engine type'}) }}
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.engineCapacity) }}
+                    {{ form_row(editForm.engineCapacity) }}
                     <small id="emailHelp" class="form-text text-muted"><b>2-digit</b> engine's capacity e.g. 2.5 (dm3)</small>
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.mileage) }}
+                    {{ form_row(editForm.mileage) }}
                     <small id="emailHelp" class="form-text text-muted">Current car's mileage .e.g. 25000</small>
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.vin, {'label': 'VIN number'}) }}
+                    {{ form_row(editForm.vin, {'label': 'VIN number'}) }}
                     <small id="emailHelp" class="form-text text-muted">16-digit unique series number e.g. WOL123456789123</small>
                 </div>
                 <div class="form-group w-25">
-                    {{ form_row(form.user, {'label': "Car's user"}) }}
+                    {{ form_row(editForm.user, {'label': "Car's user"}) }}
                     <small id="emailHelp" class="form-text text-muted">Current user of car (if is used)</small>
                 </div>
                 <div class="form-check">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-            {{ form_end(form) }}
+            {{ form_end(editForm) }}
         </div>
     </div>
 {% endblock %}
