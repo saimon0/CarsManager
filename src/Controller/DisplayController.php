@@ -20,7 +20,7 @@ class DisplayController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Car::class);
         $allCars =  $repository->findAll();
 
-        return $this->render('display/display_cars.html.twig', [
+        return $this->render('display/car_display.html.twig', [
             'allCars' => $allCars,
         ]);
     }

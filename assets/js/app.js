@@ -19,23 +19,23 @@ console.log('it also works!');
 
 $("#add-car-btn").on('click', function()
 {
-    if ($("#remove-form-div").is(":visible"))
+    if ($("#remove-car-form-div").is(":visible"))
     {
-        $("#remove-form-div").toggle();
+        $("#remove-car-form-div").toggle();
     }
     console.log("clicked!!");
-    $("#create-form-div").toggle();
+    $("#create-car-form-div").toggle();
 
 });
 
 $("#remove-car-btn").on('click', function()
 {
-    if ($("#create-form-div").is(":visible"))
+    if ($("#create-car-form-div").is(":visible"))
     {
-        $("#create-form-div").toggle();
+        $("#create-car-form-div").toggle();
     }
     console.log("clicked!!");
-    $("#remove-form-div").toggle();
+    $("#remove-car-form-div").toggle();
 
 });
 

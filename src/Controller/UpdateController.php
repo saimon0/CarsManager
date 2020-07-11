@@ -12,7 +12,7 @@ class UpdateController extends AbstractController
      */
     public function index()
     {
-        return $this->render('update/index.html.twig', [
+        return $this->render('update/employee_main.html.twig', [
             'controller_name' => 'UpdateController',
         ]);
     }

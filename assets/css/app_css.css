@@ -4,16 +4,27 @@ body
 }
 
 
-#create-form-div
+#create-car-form-div
 {
     display: none;
     margin-top: 2em;
 }
 
-#remove-form-div
+#remove-car-form-div
 {
     display: none;
     margin-top: 2em;
+}
+
+#update-car-form-div
+{
+    display: none;
+    margin-top: 2em;
+}
+
+#add-employee-btn
+{
+    margin-right: 0.3em;
 }
 
 #add-car-btn
