@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Form\CarType;
+use App\Form\EmployeeType;
+use App\Form\RemoveCarType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,8 +15,10 @@ class EmployeeController extends AbstractController
      */
     public function displayEmployeePage()
     {
+        $createForm = $this->createForm(EmployeeType::class);
+
         return $this->render('employee/employee_main.html.twig', [
-            'controller_name' => 'EmployeeController',
+            'form' => $createForm->createView(),
         ]);
     }
 

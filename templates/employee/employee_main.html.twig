@@ -2,16 +2,63 @@
 
 {% block title %}Hello EmployeeController!{% endblock %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app_css') }}
+
+{% endblock %}
+
+{% block head %}
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    </head>
+{% endblock %}
+
 {% block body %}
+    <div class="container-fluid" id="employee-main-div">
+        <div class="container-fluid" id="car-main-div-info">
+            <h3>You can add, remove an employee or edit information about him</h3>
+            <button type="button" class="btn btn-primary" id="add-employee-btn">Add Employee</button>
+            <button type="button" class="btn btn-primary" id="remove-employee-btn">Remove Employee</button>
+            <button type="button" class="btn btn-primary" id="edit-employee-btn">Edit Employee Info</button>
+            <button type="button" class="btn btn-primary" id="display-employee-btn">Display Employees</button>
+        </div>
 
+        <div class="container-fluid" id="create-employee-form-div">
+            <h4>Enter employee's information to add him to the database</h4>
+            {{ form_start(form) }}
+            <form id="form-add-employee">
+                <div class="form-group w-25">
+                    {{ form_row(form.name, {'label': 'Name'}) }}
+                    <small id="emailHelp" class="form-text text-muted">e.g. Volkswagen, BMW, Opel etc.</small>
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(form.surname, {'label': 'Surname'}) }}
+                    <small id="emailHelp" class="form-text text-muted">e.g. Golf, series 3, Astra etc.</small>
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(form.branch, {'label': 'Branch'}) }}
+                    <small id="emailHelp" class="form-text text-muted">Pick the correct year of car's production</small>
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(form.stage, {'label': 'Stage'}) }}
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(form.user, {'label': "Used (if is) car's ID" }) }}
+                    <small id="emailHelp" class="form-text text-muted"><b>2-digit</b> engines capacity e.g. 2.5 (dm3)</small>
+                </div>
+                <div class="form-check">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            {{ form_end(form) }}
+        </div>
 
-<div class="example-wrapper">
-    <h1>Manage employees - add, remove</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/szymon/SymfonyProjects/CarsManager/src/Controller/EmployeeController.php'|file_link(0) }}">src/Controller/EmployeeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/szymon/SymfonyProjects/CarsManager/templates/employee/employee_main.html.twig'|file_link(0) }}">templates/employee/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div class="container-fluid" id="return-employee-main-btn">
+            <a href="/main"><button type="button" class="btn btn-primary" id="return-employee-main-btn">Return</button></a>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
 {% endblock %}

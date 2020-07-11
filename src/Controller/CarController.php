@@ -34,7 +34,7 @@ class CarController extends AbstractController
             {
                 if ($element->getVin() == $vinNumber)
                 {
-                    return $this->redirectToRoute('creation_failed_vin');
+                    return $this->redirectToRoute('car_create_failed_vin');
                 }
             }
 
@@ -43,7 +43,7 @@ class CarController extends AbstractController
             $entityManager->flush();
             //var_dump($car);
             //var_dump("gites dodano do bazy");
-            return $this->redirectToRoute('success');
+            return $this->redirectToRoute('car_create_success');
         }
 
         $removeForm->handleRequest($request);
@@ -58,7 +58,7 @@ class CarController extends AbstractController
 
             if(!$searchedCar)
             {
-                return $this->redirectToRoute('remove_failed', [
+                return $this->redirectToRoute('car_remove_failed', [
                 ]);
             }
             else
@@ -67,7 +67,7 @@ class CarController extends AbstractController
                 $entityManager->remove($searchedCar);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('remove_successed');
+                return $this->redirectToRoute('car_remove_successed');
             }
         }
 
@@ -88,5 +88,37 @@ class CarController extends AbstractController
         return $this->render('car/car_display.html.twig', [
             'allCars' => $allCars,
         ]);
+    }
+
+    /**
+     * @Route("/car/create/success", name="car_create_success")
+     */
+    public function successPage()
+    {
+        return $this->render('car/car_create_successed.html.twig');
+    }
+
+    /**
+     * @Route("car/create/failed/vin", name="car_create_failed_vin")
+     */
+    public function creationFailedVinPage()
+    {
+        return $this->render('car/car_create_failed_vin.html.twig');
+    }
+
+    /**
+     * @Route("car/remove/success", name="car_remove_successed")
+     */
+    public function removeSuccessPage()
+    {
+        return $this->render('car/car_remove_successed.html.twig');
+    }
+
+    /**
+     * @Route("car/remove/failed", name="car_remove_failed")
+     */
+    public function removeFailPage()
+    {
+        return $this->render('car/car_remove_failed.html.twig');
     }
 }

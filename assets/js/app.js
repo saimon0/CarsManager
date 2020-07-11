@@ -25,7 +25,6 @@ $("#add-car-btn").on('click', function()
     }
     console.log("clicked!!");
     $("#create-car-form-div").toggle();
-
 });
 
 $("#remove-car-btn").on('click', function()
@@ -36,7 +35,15 @@ $("#remove-car-btn").on('click', function()
     }
     console.log("clicked!!");
     $("#remove-car-form-div").toggle();
-
 });
 
+$("#add-employee-btn").on('click', function()
+{
+    if ($("#remove-employee-form-div").is(":visible"))
+    {
+        $("#remove-employee-form-div").toggle();
+    }
+    console.log("clicked!!");
+    $("#create-employee-form-div").toggle();
+});
 

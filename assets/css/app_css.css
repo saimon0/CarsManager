@@ -3,6 +3,20 @@ body
     background-color: lightgray;
 }
 
+#manage-cars-btn
+{
+    margin-right: 0.3em;
+}
+
+#manage-employees-btn
+{
+
+}
+
+#create-employee-form-div
+{
+    margin-top: 2em;
+}
 
 #create-car-form-div
 {
@@ -81,4 +95,19 @@ body
 #return-btn-update
 {
     margin-left: 18.3em;
+}
+
+#return-car-main-btn
+{
+    margin-top: 1em;
+}
+
+#return-employee-main-btn
+{
+    margin-top: 1em;
+}
+
+#create-employee-form-div
+{
+    display: none;
 }

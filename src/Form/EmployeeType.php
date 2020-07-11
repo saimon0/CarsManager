@@ -16,7 +16,6 @@ class EmployeeType extends AbstractType
             ->add('surname')
             ->add('branch')
             ->add('stage')
-            ->add('usedcar')
             ->add('user')
         ;
     }

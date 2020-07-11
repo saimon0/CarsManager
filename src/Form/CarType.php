@@ -59,7 +59,14 @@ class CarType extends AbstractType
                     '2020' => 2020,
                 ],
             ])
-            ->add('engineType')
+            ->add('engineType', ChoiceType::class, [
+                'choices' => [
+                    'Gasoline' => "Gasoline",
+                    'Diesel' => "Diesel",
+                    'Hybrid' => "Hybrid",
+                    "Electric" => "Electric",
+                    ],
+            ])
             ->add('engineCapacity')
             ->add('mileage')
             ->add('vin')
