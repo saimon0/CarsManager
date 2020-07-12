@@ -14,16 +14,16 @@
 {% endblock %}
 
 {% block body %}
+    <div class="w-100" id="header-main-div">
+        <h1 id="header-car">Company Cars management system</h1>
+    </div>
+    <div class="container-fluid" id="main-nav-div">
+        <a href="{{ path('car_main') }}"><button type="button" class="btn btn-primary" id="manage-cars-btn">Manage cars</button></a>
+        <a href="{{ path('employee_main') }}"><button type="button" class="btn btn-primary" id="manage-employees-btn">Manage employees</button></a>
+    </div>
+
     <div class="container-fluid" id="main-container">
-        <div class="col-md-12" id="div-header">
-            <h2>Simple CRUD cars manager system</h2>
-        </div>
-        <div class="container-fluid" id="nav">
-            <div class="row" id="nav-div">
-                <a href="{{ path('car_main') }}"><button type="button" class="btn btn-primary" id="manage-cars-btn">Manage cars</button></a>
-                <a href="{{ path('employee_main') }}"><button type="button" class="btn btn-primary" id="manage-employees-btn">Manage employees</button></a>
-            </div>
-        </div>
+
     </div>
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}

@@ -31,6 +31,7 @@ class EmployeeType extends AbstractType
             ->add('user', EntityType::class, [
                 'class' => Car::class,
                 'choice_label' => 'id',
+                'required' => false,
             ])
         ;
     }

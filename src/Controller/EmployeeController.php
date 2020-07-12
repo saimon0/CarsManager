@@ -92,7 +92,7 @@ class EmployeeController extends AbstractController
         }
 
         return $this->render('employee/employee_edit.html.twig', [
-            'editForm' => $updateForm->createView(),
+            'employeeForm' => $updateForm->createView(),
         ]);
     }
 }

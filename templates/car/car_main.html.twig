@@ -26,6 +26,7 @@
     </div>
     <div class="container-fluid" id="car-nav-div">
         <a href="{{ path('car_create') }}"><button type="button" class="btn btn-success" id="add-car-btn">Add a new car</button></a>
+        <a href="#"><button type="button" class="btn btn-primary" id="service-car-main-btn">Display planned services</button></a>
         <a href="{{ path('car_main') }}"><button type="button" class="btn btn-primary" id="refresh-car-main-btn">Refresh</button></a>
         <a href="/main"><button type="button" class="btn btn-light" id="return-car-main-btn">Return</button></a>
     </div>
@@ -64,6 +65,7 @@
                         <td>{{ car.user }}</td>
                         <td id="operations">
                             <a href="{{ path('car_edit', {'car': car.id}) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ path('car_service', {'car': car.id}) }}" class="btn btn-info">Service</a>
                             <a href="{{ path('car_remove', {'car': car.id}) }}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>

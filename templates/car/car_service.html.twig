@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CarController!{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app_css') }}
+
+{% endblock %}
+
+{% block head %}
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    </head>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid" id="car-main-div">
+        <div class="container-fluid" id="car-main-div-info">
+            <h3>Plan a car service</h3>
+            <a href="/car"><button type="button" class="btn btn-danger" id="return-car-main-btn">Cancel plan a service</button></a>
+        </div>
+        <div class="container-fluid" id="service-car-form-div">
+
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
