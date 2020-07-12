@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CarController!{% endblock %}
+{% block title %}Cars Management{% endblock %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('app_css') }}
@@ -26,7 +26,8 @@
     </div>
     <div class="container-fluid" id="car-nav-div">
         <a href="{{ path('car_create') }}"><button type="button" class="btn btn-success" id="add-car-btn">Add a new car</button></a>
-        <a href="/main"><button type="button" class="btn btn-info" id="return-car-main-btn">Return</button></a>
+        <a href="{{ path('car_main') }}"><button type="button" class="btn btn-primary" id="refresh-car-main-btn">Refresh</button></a>
+        <a href="/main"><button type="button" class="btn btn-light" id="return-car-main-btn">Return</button></a>
     </div>
 
     <div class="container-fluid" id="car-main-div">

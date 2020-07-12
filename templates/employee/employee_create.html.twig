@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EmployeeController!{% endblock %}
+{% block title %}Hello CarController!{% endblock %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('app_css') }}
+
 {% endblock %}
 
 {% block head %}
@@ -14,12 +15,42 @@
 {% endblock %}
 
 {% block body %}
-<div class="container-fluid" id="main-container">
-    <div class="col-md-12" id="div-header">
-        <h2>Add new employee to the database</h2>
+    <div class="container-fluid" id="employee-main-div">
+        <div class="container-fluid" id="employee-main-div-info">
+            <h3>Enter employee's information to persist him to the database</h3>
+            <a href="/employee"><button type="button" class="btn btn-danger cancel-btn" id="return-employee-main-btn">Cancel creation</button></a>
+        </div>
 
-
+        <div class="container-fluid" id="create-employee-form-div">
+            {{ form_start(employeeForm) }}
+            <form id="form-add-employee">
+                <div class="form-group w-25">
+                    {{ form_row(employeeForm.name, {'label': 'Name'}) }}
+                    <small id="emailHelp" class="form-text text-muted">e.g. Volkswagen, BMW, Opel etc.</small>
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(employeeForm.surname, {'label': 'Surname'}) }}
+                    <small id="emailHelp" class="form-text text-muted">e.g. Golf, series 3, Astra etc.</small>
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(employeeForm.branch, {'label': 'Branch'}) }}
+                    <small id="emailHelp" class="form-text text-muted">Pick the correct year of car's production</small>
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(employeeForm.stage, {'label': 'Stage'}) }}
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(employeeForm.user, {'label': "Used Car's ID"}) }}
+                    <small id="emailHelp" class="form-text text-muted">xyz</small>
+                </div>
+                <div class="form-check">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            {{ form_end(employeeForm) }}
+        </div>
     </div>
-
-</div>
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
 {% endblock %}

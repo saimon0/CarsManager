@@ -3,10 +3,16 @@
 namespace App\Form;
 
 use App\Entity\Car;
+use App\Entity\Employee;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\Positive;
+use Symfony\Component\Validator\Constraints\Type;
 
 class CarType extends AbstractType
 {
@@ -68,9 +74,16 @@ class CarType extends AbstractType
                     ],
             ])
             ->add('engineCapacity')
-            ->add('mileage')
-            ->add('vin')
-            ->add('user')
+            ->add('mileage', TextType::class, [
+                'constraints' => [new Length(['min' => 1, 'max' => 6]), new Positive()]
+            ])
+            ->add('vin', TextType::class, [
+                'constraints' => [new Length(['min' => 16, 'max' => 16])]
+            ])
+            ->add('user', EntityType::class, [
+                'class' => Employee::class,
+                'choice_label' => 'id',
+            ])
         ;
     }
 

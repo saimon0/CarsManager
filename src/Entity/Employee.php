@@ -38,11 +38,6 @@ class Employee
     private $stage;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $usedcar;
-
-    /**
      * @ORM\OneToOne(targetEntity=Car::class, mappedBy="user", cascade={"persist", "remove"})
      */
     private $user;
@@ -100,18 +95,6 @@ class Employee
         return $this;
     }
 
-    public function getUsedcar(): ?string
-    {
-        return $this->usedcar;
-    }
-
-    public function setUsedcar(string $usedcar): self
-    {
-        $this->usedcar = $usedcar;
-
-        return $this;
-    }
-
     public function getUser(): ?Car
     {
         return $this->user;
@@ -128,5 +111,12 @@ class Employee
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        $idStr = $this->getId();
+        $idStr = strval($idStr);
+        return $idStr;
     }
 }

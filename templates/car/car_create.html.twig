@@ -18,11 +18,10 @@
     <div class="container-fluid" id="car-main-div">
         <div class="container-fluid" id="car-main-div-info">
             <h3>Enter car's parameters to persist it to the database</h3>
-            <a href="/car"><button type="button" class="btn btn-danger" id="return-car-main-btn">Cancel creation</button></a>
+            <a href="/car"><button type="button" class="btn btn-danger cancel-btn" id="return-car-main-btn">Cancel creation</button></a>
         </div>
 
         <div class="container-fluid" id="create-car-form-div">
-            <h4>Enter car's details to add it to the database</h4>
             {{ form_start(form) }}
             <form id="form-add-car">
                 <div class="form-group w-25">

@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use App\Form\CarType;
+use App\Entity\Employee;
 use App\Form\EmployeeType;
-use App\Form\RemoveCarType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class EmployeeController extends AbstractController
@@ -13,22 +13,86 @@ class EmployeeController extends AbstractController
     /**
      * @Route("/employee", name="employee_main")
      */
-    public function displayEmployeePage()
+    public function displayMainEmployeePage()
     {
-        $createForm = $this->createForm(EmployeeType::class);
+        $repository = $this->getDoctrine()->getRepository(Employee::class);
+        $allEmployees =  $repository->findAll();
 
         return $this->render('employee/employee_main.html.twig', [
-            'form' => $createForm->createView(),
+            'allEmployees' => $allEmployees,
         ]);
     }
 
     /**
      * @Route("/employee/create", name="employee_create")
      */
-    public function createEmployee()
+    public function createEmployee(Request $request)
     {
+        $createForm = $this->createForm(EmployeeType::class);
+
+        $createForm->handleRequest($request);
+
+        if($createForm->isSubmitted() && $createForm->isValid())
+        {
+            $employee = $createForm->getData();
+
+            $repository = $this->getDoctrine()->getRepository(Employee::class);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($employee);
+            $entityManager->flush();
+
+            $this->get('session')->getFlashBag()->add(
+                'notice',
+                'A new employee was added successfully!'
+            );
+
+            return $this->redirectToRoute('employee_main');
+        }
+
         return $this->render('employee/employee_create.html.twig', [
-            'controller_name' => 'EmployeeController',
+            'employeeForm' => $createForm->createView(),
+        ]);
+    }
+
+    /**
+     * @param Employee $employee
+     * @Route("/employee/remove/{employee}", name="employee_remove")
+     */
+    public function deleteCar(Request $request, Employee $employee)
+    {
+        if ($employee === NULL)
+        {
+            return $this->redirectToRoute("employee_main");
+        }
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($employee);
+        $entityManager->flush();
+
+        return $this->redirectToRoute("employee_main");
+    }
+
+    /**
+     * @param Employee $employee
+     * @Route("/employee/edit/{employee}", name="employee_edit")
+     */
+    public function editCar(Request $request, Employee $employee)
+    {
+        $updateForm = $this->createForm(EmployeeType::class, $employee);
+
+        $updateForm->handleRequest($request);
+
+        if($updateForm->isSubmitted() && $updateForm->isValid())
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
+
+            return $this->redirectToRoute('employee_main');
+        }
+
+        return $this->render('employee/employee_edit.html.twig', [
+            'editForm' => $updateForm->createView(),
         ]);
     }
 }

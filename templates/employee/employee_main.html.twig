@@ -15,47 +15,52 @@
 {% endblock %}
 
 {% block body %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <div class="w-100" id="header-employee-div">
+        <h1 id="header-employee">Employees in database</h1>
+    </div>
+    <div class="container-fluid" id="employee-nav-div">
+        <a href="{{ path('employee_create') }}"><button type="button" class="btn btn-success" id="add-car-btn">Add a new employee</button></a>
+        <a href="{{ path('employee_main') }}"><button type="button" class="btn btn-primary" id="refresh-car-main-btn">Refresh</button></a>
+        <a href="/main"><button type="button" class="btn btn-light" id="return-car-main-btn">Return</button></a>
+    </div>
     <div class="container-fluid" id="employee-main-div">
-        <div class="container-fluid" id="car-main-div-info">
-            <h3>You can add, remove an employee or edit information about him</h3>
-            <button type="button" class="btn btn-primary" id="add-employee-btn">Add Employee</button>
-            <button type="button" class="btn btn-primary" id="remove-employee-btn">Remove Employee</button>
-            <button type="button" class="btn btn-primary" id="edit-employee-btn">Edit Employee Info</button>
-            <button type="button" class="btn btn-primary" id="display-employee-btn">Display Employees</button>
+        <div class="container-fluid" id="employee-main-div-info">
+            <h3 id="header-employee-info"> This page shows all employees which are currently persist in database</h3>
         </div>
-
-        <div class="container-fluid" id="create-employee-form-div">
-            <h4>Enter employee's information to add him to the database</h4>
-            {{ form_start(form) }}
-            <form id="form-add-employee">
-                <div class="form-group w-25">
-                    {{ form_row(form.name, {'label': 'Name'}) }}
-                    <small id="emailHelp" class="form-text text-muted">e.g. Volkswagen, BMW, Opel etc.</small>
-                </div>
-                <div class="form-group w-25">
-                    {{ form_row(form.surname, {'label': 'Surname'}) }}
-                    <small id="emailHelp" class="form-text text-muted">e.g. Golf, series 3, Astra etc.</small>
-                </div>
-                <div class="form-group w-25">
-                    {{ form_row(form.branch, {'label': 'Branch'}) }}
-                    <small id="emailHelp" class="form-text text-muted">Pick the correct year of car's production</small>
-                </div>
-                <div class="form-group w-25">
-                    {{ form_row(form.stage, {'label': 'Stage'}) }}
-                </div>
-                <div class="form-group w-25">
-                    {{ form_row(form.user, {'label': "Used (if is) car's ID" }) }}
-                    <small id="emailHelp" class="form-text text-muted"><b>2-digit</b> engines capacity e.g. 2.5 (dm3)</small>
-                </div>
-                <div class="form-check">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-            {{ form_end(form) }}
-        </div>
-
-        <div class="container-fluid" id="return-employee-main-btn">
-            <a href="/main"><button type="button" class="btn btn-primary" id="return-employee-main-btn">Return</button></a>
+        <div class="container-fluid" id="div-display-employees">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Branch</th>
+                    <th>Stage</th>
+                    <th>Used car's ID</th>
+                    <th>Operations</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for employee in allEmployees %}
+                    <tr>
+                        <td>{{ employee.name }}</td>
+                        <td>{{ employee.surname }}</td>
+                        <td>{{ employee.branch }}</td>
+                        <td>{{ employee.stage }}</td>
+                        <td>{{ employee.user }}</td>
+                        <td id="operations">
+                            <a href="{{ path('employee_edit', {'employee': employee.id}) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ path('employee_remove', {'employee': employee.id}) }}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 {% endblock %}

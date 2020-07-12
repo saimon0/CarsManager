@@ -162,4 +162,11 @@ class Car
 
         return $this;
     }
+
+    public function __toString()
+    {
+        $idStr = $this->getId();
+        $idStr = strval($idStr);
+        return $idStr;
+    }
 }
