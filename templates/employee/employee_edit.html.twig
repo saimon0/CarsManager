@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CarController!{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app_css') }}
+
+{% endblock %}
+
+{% block head %}
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    </head>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid" id="employee-main-div">
+        <div class="container-fluid" id="employee-main-div-info">
+            <h3>Enter employee's information to persist him to the database</h3>
+            <a href="/employee"><button type="button" class="btn btn-danger cancel-btn" id="return-employee-main-btn">Cancel creation</button></a>
+        </div>
+
+        <div class="container-fluid" id="create-employee-form-div">
+            {{ form_start(employeeForm) }}
+            <form id="form-add-employee">
+                <div class="form-group w-25">
+                    {{ form_row(employeeForm.name, {'label': 'Name'}) }}
+                    <small id="emailHelp" class="form-text text-muted">e.g. Volkswagen, BMW, Opel etc.</small>
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(employeeForm.surname, {'label': 'Surname'}) }}
+                    <small id="emailHelp" class="form-text text-muted">e.g. Golf, series 3, Astra etc.</small>
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(employeeForm.branch, {'label': 'Branch'}) }}
+                    <small id="emailHelp" class="form-text text-muted">Pick the correct year of car's production</small>
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(employeeForm.stage, {'label': 'Stage'}) }}
+                </div>
+                <div class="form-group w-25">
+                    {{ form_row(employeeForm.user, {'label': "Used Car's ID"}) }}
+                    <small id="emailHelp" class="form-text text-muted">xyz</small>
+                </div>
+                <div class="form-check">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            {{ form_end(employeeForm) }}
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
