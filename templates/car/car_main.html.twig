@@ -26,14 +26,14 @@
     </div>
     <div class="container-fluid" id="car-nav-div">
         <a href="{{ path('car_create') }}"><button type="button" class="btn btn-success" id="add-car-btn">Add a new car</button></a>
-        <a href="#"><button type="button" class="btn btn-primary" id="service-car-main-btn">Display planned services</button></a>
+        <a href="{{ path('car_service_display') }}"><button type="button" class="btn btn-primary" id="service-car-main-btn">Display planned services</button></a>
         <a href="{{ path('car_main') }}"><button type="button" class="btn btn-primary" id="refresh-car-main-btn">Refresh</button></a>
         <a href="/main"><button type="button" class="btn btn-light" id="return-car-main-btn">Return</button></a>
     </div>
 
     <div class="container-fluid" id="car-main-div">
         <div class="container-fluid" id="car-main-div-info">
-            <h3 id="header-car-info"> This page shows all cars which are currently persist in database</h3>
+            <h3 id="header-car-info"> This page shows all cars ({{ allCars|length }}) which are currently persist in database</h3>
         </div>
         <div class="container-fluid" id="div-display-cars">
             <table class="table table-bordered">

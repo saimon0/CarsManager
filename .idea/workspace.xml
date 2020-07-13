@@ -19,14 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="155868ec-1a6c-4a9d-8b4a-04e66cb72a6a" name="Default Changelist" comment="update 13.07.2020&#10;&#10;- complete CRUD works for cars and employees">
-      <change afterPath="$PROJECT_DIR$/templates/car/car_service.html.twig" afterDir="false" />
+    <list default="true" id="155868ec-1a6c-4a9d-8b4a-04e66cb72a6a" name="Default Changelist" comment="update 13.07.2020&#10;&#10;- complete CRUD works for cars and employees&#10;- create service button">
+      <change afterPath="$PROJECT_DIR$/templates/car/car_service_display.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/app_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/EmployeeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EmployeeType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CarController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CarType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CarType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/car_create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/car/car_create.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/car_edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/car/car_edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/car/car_main.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/car/car_main.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/main_page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/main_page.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/car/test.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +208,8 @@
       <updated>1594577694190</updated>
       <workItem from="1594577695264" duration="329000" />
       <workItem from="1594578223421" duration="945000" />
-      <workItem from="1594579518635" duration="7597000" />
+      <workItem from="1594579518635" duration="7882000" />
+      <workItem from="1594634294759" duration="6452000" />
     </task>
     <task id="LOCAL-00001" summary="update 13.07.2020&#10;&#10;- complete CRUD works for cars and employees">
       <created>1594591273046</created>
@@ -214,7 +218,21 @@
       <option name="project" value="LOCAL" />
       <updated>1594591273046</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update 13.07.2020&#10;&#10;- complete CRUD works for cars and employees&#10;- create service button">
+      <created>1594595018564</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1594595018564</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update 13.07.2020&#10;&#10;- complete CRUD works for cars and employees&#10;- create service button">
+      <created>1594595086310</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1594595086310</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,10 +248,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update 13.07.2020&#10;&#10;- complete CRUD works for cars and employees" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 13.07.2020&#10;&#10;- complete CRUD works for cars and employees" />
+    <MESSAGE value="update 13.07.2020&#10;&#10;- complete CRUD works for cars and employees&#10;- create service button" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 13.07.2020&#10;&#10;- complete CRUD works for cars and employees&#10;- create service button" />
   </component>
   <component name="WindowStateProjectService">
     <state x="937" y="440" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594580751866">
@@ -252,10 +272,10 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="576" y="189" width="1022" height="737" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1594577697941" />
-    <state x="676" y="283" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1594591277317">
+    <state x="676" y="283" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1594595090893">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="676" y="283" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1594591277317" />
+    <state x="676" y="283" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1594595090893" />
     <state x="793" y="293" key="run.anything.popup" timestamp="1594581183693">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>

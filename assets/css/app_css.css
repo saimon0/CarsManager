@@ -138,6 +138,13 @@ body
     padding-bottom: 1em;
 }
 
+#header-service-div
+{
+    background-color: #3B98AF;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
 #header-main-div
 {
     background-color: #3B98AF;
@@ -158,13 +165,34 @@ body
     margin-left: 1em;
 }
 
+#service-car
+{
+    color: #ECECEC;
+    margin-left: 1em;
+}
+
 #header-employee
 {
     color: #ECECEC;
     margin-left: 1em;
 }
 
+#header-service
+{
+    color: #ECECEC;
+    margin-left: 1em;
+}
+
 #car-nav-div
+{
+    margin-top: 0.05em;
+    padding-left: 2em;
+    background-color: #3B98AF;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+#service-nav-div
 {
     margin-top: 0.05em;
     padding-left: 2em;

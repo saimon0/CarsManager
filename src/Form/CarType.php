@@ -73,7 +73,9 @@ class CarType extends AbstractType
                     "Electric" => "Electric",
                     ],
             ])
-            ->add('engineCapacity')
+            ->add('engineCapacity', TextType::class, [
+                'constraints' => [new Length(['min' => 1, 'max' => 3]), new Positive()]
+            ])
             ->add('mileage', TextType::class, [
                 'constraints' => [new Length(['min' => 1, 'max' => 6]), new Positive()]
             ])
@@ -83,6 +85,7 @@ class CarType extends AbstractType
             ->add('user', EntityType::class, [
                 'class' => Employee::class,
                 'choice_label' => 'id',
+                'required' => false,
             ])
         ;
     }

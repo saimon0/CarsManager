@@ -104,12 +104,17 @@ class CarController extends AbstractController
      */
     public function serviceCar(Request $request, Car $car)
     {
-
-
         return $this->render('car/car_service.html.twig', [
-
         ]);
     }
 
+    /**
+     * @Route("/car/services", name="car_service_display")
+     */
+    public function servicesCar(Request $request)
+    {
+        return $this->render('car/car_service_display.html.twig', [
+        ]);
+    }
 
 }

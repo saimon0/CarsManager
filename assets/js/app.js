@@ -47,3 +47,20 @@ $("#add-employee-btn").on('click', function()
     $("#create-employee-form-div").toggle();
 });
 
+console.log(vin);
+
+
+let vin = $('#car_vin').val();
+
+$("#car-create-submit-btn").on('click', function()
+{
+    if(vin.length === 16)
+    {
+        console.log("OK");
+    }
+    else
+    {
+        console.log("exec");
+        document.getElementById("vin-number-length").textContent= vin + " characters typed";
+    }
+})

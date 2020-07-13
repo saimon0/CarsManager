@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CarController!{% endblock %}
+{% block title %}Car's editor{% endblock %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('app_css') }}
@@ -48,6 +48,7 @@
                 </div>
                 <div class="form-group w-25">
                     {{ form_row(editForm.vin, {'label': 'VIN number'}) }}
+                    <span id="vin-number-length"></span>
                     <small id="emailHelp" class="form-text text-muted">16-digit unique series number e.g. WOL123456789123</small>
                 </div>
                 <div class="form-group w-25">
