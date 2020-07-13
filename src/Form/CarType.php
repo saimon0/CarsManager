@@ -12,6 +12,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Positive;
+use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Type;
 
 class CarType extends AbstractType
@@ -73,8 +74,12 @@ class CarType extends AbstractType
                     "Electric" => "Electric",
                     ],
             ])
-            ->add('engineCapacity', TextType::class, [
-                'constraints' => [new Length(['min' => 1, 'max' => 3]), new Positive()]
+            ->add('engineCapacity', TextType::class,
+                [
+                'constraints' => [
+                    new Length(['min' => 1, 'max' => 3]),
+                    new Positive(['message' => 'Engine Capacity must be positive number']),
+                    new Regex(['pattern' => '/[0-9][.][0-9]/', 'message' => 'Engine Capacity must be 2-digit decimal number (e.g. "1.5")'])]
             ])
             ->add('mileage', TextType::class, [
                 'constraints' => [new Length(['min' => 1, 'max' => 6]), new Positive()]
